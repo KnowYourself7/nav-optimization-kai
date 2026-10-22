@@ -38,11 +38,11 @@ The types are `keep`, `rename`, `move`, `promote`, `add`, `remove`, `merge`, `re
 
 ### Promote to top level
 
-If a group is a product type and its product count or its traffic ranks in the site's top five, promote it. Keep the top level at ten items or fewer. If the brief asks for internal links to content, a content group can be promoted too. Otherwise it stays below.
+If a group is a product type and its product count or its traffic ranks in the site's top five, promote it. Keep the top level at ten items or fewer. If the brief asks for internal links to content, you can promote a content group too. Otherwise it stays below.
 
 ### Rename
 
-Rename in three cases. The search volume of another label is clearly higher. The label is misspelled. The label hides what is inside, for example "Gifts" over an accessories list. If the volumes are close, keep the site's own word. Record both volumes in `search_volume`.
+Rename in three cases. The search volume of another label is clearly higher. The label has a spelling error. The label hides what is inside, for example "Gifts" over an accessories list. If the volumes are close, keep the site's own word. Record both volumes in `search_volume`.
 
 ### Move
 

@@ -17,7 +17,7 @@ Record each pick and each rejection with a reason. If a site blocks capture, lis
 
 Capture the desktop menu and the mobile menu for each site. Use Firecrawl MCP `firecrawl_scrape` with JavaScript rendering. If the site blocks it, use the built-in browser. If both fail, ask the user for a screenshot or the menu text. Save the raw capture under `work/competitors/<site>/` and note the capture date.
 
-Menus are often rendered by JavaScript. A capture without rendering returns an empty header.
+JavaScript often renders the menu. A capture without rendering returns an empty header.
 
 ## The seven dimensions
 
@@ -28,11 +28,11 @@ Menus are often rendered by JavaScript. A capture without rendering returns an e
 | Grouping axis | product type, occasion, material, collection, promo, or a mix |
 | Attributes as filters or categories | whether color, material and fit appear as menu items or as filter links |
 | Mobile first level | whether product categories appear on the first level of the hamburger menu, or "not verified" |
-| Sale handling | a permanent top-level Sale, a Sale inside a group, or none, and how it is subdivided |
+| Sale handling | a permanent top-level Sale, a Sale inside a group, or none, and how the site subdivides it |
 | New-arrivals handling | a top-level entry, subdivided by category or by season, mixed with promos or not |
 
 ## Reading the matrix
 
-If at least two brand sites agree, write "reference" in the last column. The marketplace does not vote. A practice found on one site is noted, not adopted.
+If at least two brand sites agree, write "reference" in the last column. The marketplace does not vote. Note a practice found on one site. Do not adopt it.
 
 Keep the matrix as `work/competitor_matrix.csv`. The first column is the dimension. The next columns are the sites. The last column is the shared practice.

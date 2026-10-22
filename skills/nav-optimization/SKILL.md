@@ -1,6 +1,6 @@
 ---
 name: nav-optimization
-description: Optimizes the navigation menu of an existing e-commerce site. Changes only grouping, order, labels and entries, never a URL. Delivers a client proposal, a clickable HTML mockup and a change table backed by product counts, Search Console, GA4, keyword volume and competitor menus. If the user wants to improve, audit, restructure, simplify or rename a site menu, use this skill. This covers the navigation, mega menu, header menu, main menu, category menu and mobile hamburger menu. If the user asks how a store's categories are grouped, use this skill too, even without the word navigation.
+description: Optimizes the navigation menu of an existing e-commerce site. Changes only grouping, order, labels and entries, never a URL. Delivers a client proposal, a clickable HTML mockup and a change table backed by product counts, Search Console, GA4, keyword volume and competitor menus. If the user wants to improve, audit, restructure, simplify or rename a site menu, use this skill. This covers the navigation, mega menu, header menu, main menu, category menu and mobile hamburger menu. If the user asks how to group a store's categories, use this skill too, even without the word navigation.
 argument-hint: "[work-directory]"
 user-invocable: true
 compatibility: Needs Python 3.11. Uses Firecrawl MCP or the built-in browser to capture menus. Reads DataForSEO through MCP or REST with credentials in environment variables.
@@ -31,7 +31,7 @@ Nav optimization
 
 ## Step 1: Inventory
 
-Two inputs are required. If one is missing, stop and ask for it.
+The skill needs two inputs. If one is missing, stop and ask for it.
 
 | File | Content |
 |---|---|
@@ -79,7 +79,7 @@ Record what you were not able to capture. Never fill a cell from memory.
 
 Apply the rules in `references/change-rules.md` to every row of the current-menu table. Then apply them to every page with traffic that has no entry. Write `deliver/changes.csv` with the 14 columns listed there. Write `deliver/menu_proposed.json` in the mockup schema.
 
-For label changes look up search volume. If a DataForSEO MCP tool is present, use `dataforseo_labs_google_keyword_overview` or the Google Ads search volume tool. If not, run:
+For label changes, look up the search volume. If a DataForSEO MCP tool is present, use `dataforseo_labs_google_keyword_overview` or the Google Ads tool for search volume. If not, run:
 
 ```bash
 python3 scripts/search_volume.py --keywords work/label_candidates.txt --out work/search_volume.csv
@@ -106,11 +106,11 @@ Run the verifier. Fix every failure before the stop.
 python3 scripts/verify.py --workdir <work-directory>
 ```
 
-STOP 3. Show the verifier report and the proposal summary. Wait for the user's go-ahead.
+STOP 3. Show the verifier report and the proposal summary. Wait until the user approves.
 
 ## Step 6: Snapshot
 
-Copy `work/` and `deliver/` into `history/<date>/` so the next revision can diff against this one.
+Copy `work/` and `deliver/` into `history/<date>/` so that you can compare the next revision with this one.
 
 ## Rules that do not bend
 
@@ -122,7 +122,7 @@ Each rule has a reason in `references/principles.md`.
 - Content entries (blog, guides) take a top-level slot only in one case: the brief asks for internal links to content.
 - Attributes such as color, material, warehouse or shipping origin become filters, not categories.
 - A competitor practice without a capture record is not a reference.
-- A judgment without data is marked "pending", never written as a conclusion.
+- Mark a judgment without data as "pending". Never write it as a conclusion.
 - Numbers come from a file in `inputs/` or `work/`. Never estimate.
 - Credentials never appear in any output. The scripts read them from the environment only.
 
@@ -134,5 +134,5 @@ Read the file that the current step names.
 - `references/competitor-matrix.md`: the seven dimensions and how to fill them.
 - `references/change-rules.md`: the decision rules per change type and the 14 columns.
 - `references/deliverable-templates.md`: proposal and README structure.
-- `references/mockup.md`: the menu JSON schema and how the mockup is built.
+- `references/mockup.md`: the menu JSON schema and how the script builds the mockup.
 - `references/degradation.md`: the fallback for each missing optional input.

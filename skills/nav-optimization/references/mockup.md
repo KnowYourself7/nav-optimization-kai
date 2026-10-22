@@ -45,7 +45,7 @@ Field rules:
 - `article` is an optional link to one content page. It shows at the end of a column or a dropdown.
 - `footer` is a list of columns with the same shape as `cols`.
 
-The mobile drawer is derived from the same data. The first level is `items`. The second level lists each column's items under a small heading.
+The page derives the mobile drawer from the same data. The first level is `items`. The second level lists each column's items under a small heading.
 
 ## Build the mockup
 
