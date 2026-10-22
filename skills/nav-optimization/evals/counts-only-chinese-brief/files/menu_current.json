@@ -1,0 +1,228 @@
+{
+ "brand": "NORTHWIND",
+ "utility": [
+  "Track Order",
+  "Rewards"
+ ],
+ "items": [
+  {
+   "label": "NEW & HOT",
+   "href": "/collections/new-arrivals",
+   "cols": [
+    {
+     "title": "New",
+     "items": [
+      {
+       "label": "All New",
+       "href": "/collections/new-arrivals"
+      },
+      {
+       "label": "Summer Edit",
+       "href": "/collections/summer-edit"
+      },
+      {
+       "label": "Buy 1 Get 1",
+       "href": "/collections/bogo"
+      }
+     ]
+    },
+    {
+     "title": "Popular",
+     "items": [
+      {
+       "label": "Best Sellers",
+       "href": "/collections/best-sellers"
+      },
+      {
+       "label": "Minimal Style",
+       "href": "/collections/minimal-style"
+      },
+      {
+       "label": "Street Style",
+       "href": "/collections/street-style"
+      },
+      {
+       "label": "Team Collab",
+       "href": "/collections/team-collab"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "CLOTHING",
+   "href": "/collections/best-sellers",
+   "cols": [
+    {
+     "title": "Tops",
+     "href": "/collections/tops",
+     "items": [
+      {
+       "label": "Shirts",
+       "href": "/collections/shirts"
+      },
+      {
+       "label": "Tees",
+       "href": "/collections/tees"
+      },
+      {
+       "label": "Polos",
+       "href": "/collections/polos"
+      },
+      {
+       "label": "Hoodies",
+       "href": "/collections/hoodies"
+      },
+      {
+       "label": "Vests",
+       "href": "/collections/suit-vests"
+      },
+      {
+       "label": "Knit Shirts",
+       "href": "/collections/knit-shirts"
+      }
+     ]
+    },
+    {
+     "title": "Bottoms",
+     "href": "/collections/bottoms",
+     "items": [
+      {
+       "label": "Pants",
+       "href": "/collections/pants"
+      },
+      {
+       "label": "Shorts",
+       "href": "/collections/shorts"
+      }
+     ]
+    },
+    {
+     "title": "Outerwears",
+     "href": "/collections/outerwear",
+     "items": [
+      {
+       "label": "Jackets",
+       "href": "/collections/jackets"
+      },
+      {
+       "label": "Blazers",
+       "href": "/collections/blazers"
+      },
+      {
+       "label": "Cardigans",
+       "href": "/collections/cardigans"
+      }
+     ]
+    },
+    {
+     "title": "US Warehouse",
+     "href": "/collections/us-stock",
+     "items": [
+      {
+       "label": "US Shirts",
+       "href": "/collections/us-shirts"
+      },
+      {
+       "label": "US Pants",
+       "href": "/collections/us-pants"
+      }
+     ]
+    },
+    {
+     "title": "Shop by Fabric",
+     "href": "/collections",
+     "items": [
+      {
+       "label": "Linen",
+       "href": "/collections/linen"
+      },
+      {
+       "label": "Cotton",
+       "href": "/collections/cotton"
+      },
+      {
+       "label": "Leather",
+       "href": "/collections/leather"
+      }
+     ]
+    },
+    {
+     "title": "Shop by Style",
+     "href": "/collections/all",
+     "items": [
+      {
+       "label": "Minimal Style",
+       "href": "/collections/minimal-style"
+      },
+      {
+       "label": "Street Style",
+       "href": "/collections/street-style"
+      },
+      {
+       "label": "Vintage",
+       "href": "/collections/vintage"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "HOLIDAY",
+   "href": "/collections/holiday-sale",
+   "direct": true
+  },
+  {
+   "label": "GIFTS",
+   "href": "/collections/accessories",
+   "cols": [
+    {
+     "title": "Accessories",
+     "items": [
+      {
+       "label": "Hats",
+       "href": "/collections/hats"
+      },
+      {
+       "label": "Belts",
+       "href": "/collections/belts"
+      },
+      {
+       "label": "Sunglasses",
+       "href": "/collections/sunglasses"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "ABOUT",
+   "href": "/pages/about",
+   "cols": [
+    {
+     "title": "Company",
+     "items": [
+      {
+       "label": "Our Story",
+       "href": "/pages/about"
+      },
+      {
+       "label": "Reviews",
+       "href": "/pages/reviews"
+      },
+      {
+       "label": "Blog",
+       "href": "/blogs/guides"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "LOOKBOOK",
+   "href": "/pages/lookbook",
+   "direct": true
+  }
+ ],
+ "footer": []
+}

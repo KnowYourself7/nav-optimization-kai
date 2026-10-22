@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<style>
+:root{--bg:#f3f4f0;--surface:#fff;--ink:#1c201b;--muted:#6a7064;--line:#d9ddd3;--accent:#4f6a2f;--tag-new:#2b6cb0;--tag-chg:#9a6b1f;--panel:#fbfbf9}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Source Sans 3","Helvetica Neue",Arial,sans-serif;padding:20px 16px 48px}
+h1,h2{font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;margin:0}
+h1{font-size:30px}h2{font-size:20px;color:var(--muted)}
+.wrap{max-width:1240px;margin:0 auto;display:grid;gap:28px}
+.block{display:grid;gap:12px}.block>header{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}.hint{color:var(--muted);font-size:14px}
+.desk-scroll{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+.desk{min-width:1120px}
+.util{display:flex;justify-content:space-between;padding:6px 24px;background:var(--ink);color:var(--bg);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.util .right{display:flex;gap:20px}
+.bar{display:flex;align-items:center;gap:28px;padding:0 24px;height:56px;border-bottom:1px solid var(--line)}
+.logo{font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif;font-weight:700;font-size:26px;letter-spacing:.06em}
+.nav{display:flex;flex:1;height:100%;margin:0;padding:0;list-style:none}
+.nav button{all:unset;cursor:pointer;height:100%;padding:0 11px;white-space:nowrap;font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif;font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase;border-bottom:3px solid transparent;box-sizing:border-box;display:flex;align-items:center}
+.nav button:hover,.nav button[aria-expanded="true"]{border-bottom-color:var(--accent);color:var(--accent)}
+.icons{display:flex;gap:16px;color:var(--muted);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.mega{background:var(--panel);border-bottom:1px solid var(--line);padding:22px 24px 26px;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);gap:28px}
+.mega[hidden]{display:none}
+.col h3{font-family:"Barlow Condensed",Arial,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.col h3.link{color:var(--accent)}
+.col ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+.col li{display:flex;align-items:baseline;gap:6px;font-size:14px}
+.col li .n{color:var(--muted);font-size:12px}
+.col li.art{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-style:italic}
+.col li.art::before{content:attr(data-badge);font-style:normal;font-size:11px;color:var(--accent);border:1px solid var(--accent);border-radius:3px;padding:0 4px}
+.tag{font-size:10px;letter-spacing:.06em;border-radius:3px;padding:0 4px;line-height:16px;color:#fff}
+.tag.new{background:var(--tag-new)}.tag.chg{background:var(--tag-chg)}
+.direct{padding:16px 24px;color:var(--muted);font-size:14px}
+.gap{height:120px;display:grid;place-items:center;color:var(--muted);font-size:13px;background:repeating-linear-gradient(135deg,transparent 0 10px,var(--line) 10px 11px)}
+.footlabel{display:flex;align-items:center;gap:10px;padding:10px 24px;background:var(--ink);color:var(--bg);font-family:"Barlow Condensed",Arial,sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.footlabel span{font-family:inherit;text-transform:none;letter-spacing:0;opacity:.8}
+.deskfoot{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:20px 24px;background:var(--panel);font-size:13px;color:var(--muted)}
+.deskfoot h4{margin:0 0 6px;font-family:"Barlow Condensed",Arial,sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.deskfoot ul{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.phone-row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.phone{width:min(100%,390px);height:780px;border:10px solid var(--ink);border-radius:36px;background:var(--surface);overflow:hidden;position:relative;display:flex;flex-direction:column;flex:none}
+.ptop{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line)}
+.ptop .logo{font-size:20px}.ptop button,.dhead button{all:unset;cursor:pointer;font-size:22px;line-height:1;padding:4px}
+.hero{flex:1;display:grid;place-items:center;color:var(--muted);font-size:13px;text-align:center;padding:16px}
+.drawer{position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column}
+.drawer[hidden]{display:none}
+.dhead{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
+.list{overflow-y:auto;flex:1}
+.l1{border-bottom:1px solid var(--line)}
+.l1>button{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;width:100%;box-sizing:border-box;padding:13px 16px;font-family:"Barlow Condensed",Arial,sans-serif;font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase}
+.l1>button .chev{color:var(--muted);font-size:13px}.l1>button[aria-expanded="true"]{color:var(--accent)}
+.l2{padding:0 16px 10px;display:grid;gap:2px}.l2[hidden]{display:none}
+.l2 .sub{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:8px 0 2px}
+.l2 .row{display:flex;align-items:baseline;gap:6px;padding:6px 0 6px 12px;font-size:15px;border-left:2px solid var(--line)}
+.l2 .row .n{color:var(--muted);font-size:12px}.l2 .row.all{font-weight:600}.l2 .row.art{font-style:italic}
+.l2 .row.art::before{content:attr(data-badge);font-style:normal;font-size:11px;color:var(--accent);border:1px solid var(--accent);border-radius:3px;padding:0 4px}
+.dfoot{border-top:1px solid var(--line);padding:10px 16px;font-size:12px;color:var(--muted);display:flex;gap:14px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:13px;color:var(--muted);align-items:center}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="block"><h1 id="pageTitle"></h1></section>
+  <section class="block">
+    <header><h2 id="deskTitle"></h2><span class="hint" id="deskHint"></span></header>
+    <div class="desk-scroll"><div class="desk" id="desk">
+      <div class="util"><span id="utilLeft"></span><div class="right" id="utilRight"></div></div>
+      <div class="bar"><div class="logo" id="brand"></div><ul class="nav" id="desknav"></ul><div class="icons"><span>Account</span><span>Search</span><span>Cart</span></div></div>
+      <div class="mega" id="mega" hidden></div>
+      <div class="direct" id="deskhint"></div>
+      <div class="gap" id="contentArea"></div>
+      <div class="footlabel"><span id="footLabel"></span><span id="footNote"></span></div>
+      <div class="deskfoot" id="deskfoot"></div>
+    </div></div>
+  </section>
+  <section class="block">
+    <header><h2 id="mobileTitle"></h2><span class="hint" id="mobileHint"></span></header>
+    <div class="phone-row">
+      <div class="phone">
+        <div class="ptop"><div class="logo" id="brand2"></div><button type="button" id="openDrawer">☰</button></div>
+        <div class="hero" id="homeArea"></div>
+        <div class="drawer" id="drawer" hidden>
+          <div class="dhead"><span class="logo" id="menuWord" style="font-size:18px"></span><button type="button" id="closeDrawer">✕</button></div>
+          <div class="list" id="mlist"></div>
+          <div class="dfoot" id="dfoot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="legend" id="legend"></section>
+</div>
+<script>
+const NAV = /*NAV_DATA*/null;
+const UI = /*UI_STRINGS*/null;
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function tag(it){return it.tag?`<span class="tag ${it.tag}">${it.tag==="new"?UI.tag_new:UI.tag_chg}</span>`:""}
+function li(it){return `<li><span>${esc(it.label)}</span>${it.count!=null?`<span class="n">${it.count}</span>`:""}${tag(it)}</li>`}
+document.title = `${NAV.brand||""} ${UI.title}`.trim();
+document.getElementById("pageTitle").textContent = document.title;
+document.getElementById("deskTitle").textContent = UI.desktop;
+document.getElementById("deskHint").textContent = UI.desktop_hint;
+document.getElementById("mobileTitle").textContent = UI.mobile;
+document.getElementById("mobileHint").textContent = UI.mobile_hint;
+document.getElementById("brand").textContent = NAV.brand||"";
+document.getElementById("brand2").textContent = NAV.brand||"";
+document.getElementById("menuWord").textContent = UI.menu;
+document.getElementById("homeArea").textContent = UI.home_area;
+document.getElementById("contentArea").textContent = UI.content_area;
+document.getElementById("footLabel").textContent = UI.footer_label;
+document.getElementById("footNote").textContent = UI.footer_note;
+document.getElementById("utilLeft").textContent = (NAV.utility_left||"");
+document.getElementById("utilRight").innerHTML = (NAV.utility||[]).map(u=>`<span>${esc(u)}</span>`).join("");
+document.getElementById("dfoot").innerHTML = (NAV.utility||[]).map(u=>`<span>${esc(u)}</span>`).join("");
+document.getElementById("deskfoot").innerHTML = (NAV.footer||[]).map(c=>`<div><h4>${esc(c.title)}</h4><ul>${(c.items||[]).map(i=>`<li>${esc(i.label)}</li>`).join("")}</ul></div>`).join("");
+document.getElementById("legend").innerHTML = `<span><span class="tag new">${UI.tag_new}</span> ${esc(UI.legend_new)}</span><span><span class="tag chg">${UI.tag_chg}</span> ${esc(UI.legend_chg)}</span><span>${esc(UI.legend_article)}</span><span>${esc(UI.legend_count)}</span>`;
+
+const navEl=document.getElementById("desknav"), mega=document.getElementById("mega"), hint=document.getElementById("deskhint");
+hint.textContent = UI.hover_hint;
+let openIdx=-1;
+NAV.items.forEach((m,i)=>{const b=document.createElement("button");b.type="button";b.textContent=m.label;b.setAttribute("aria-expanded","false");b.addEventListener("mouseenter",()=>openDesk(i));b.addEventListener("click",()=>openDesk(openIdx===i?-1:i));const l=document.createElement("li");l.appendChild(b);navEl.appendChild(l)});
+document.getElementById("desk").addEventListener("mouseleave",()=>openDesk(-1));
+function openDesk(i){openIdx=i;[...navEl.querySelectorAll("button")].forEach((b,k)=>b.setAttribute("aria-expanded",String(k===i)));
+  if(i<0){mega.hidden=true;hint.hidden=false;hint.textContent=UI.hover_hint;return}
+  const m=NAV.items[i];
+  if(m.direct){mega.hidden=true;hint.hidden=false;hint.textContent=UI.direct_hint.replace("{label}",m.label);return}
+  hint.hidden=true;
+  mega.innerHTML=(m.cols||[]).map(c=>`<div class="col"><h3 class="${c.href?"link":""}">${esc(c.title)}</h3><ul>${(c.items||[]).map(li).join("")}${c.article?`<li class="art" data-badge="${esc(UI.article)}">${esc(c.article.label)}</li>`:""}</ul></div>`).join("")
+    +(m.article?`<div class="col"><h3>${esc(UI.article)}</h3><ul><li class="art" data-badge="${esc(UI.article)}">${esc(m.article.label)}</li></ul></div>`:"");
+  mega.hidden=false}
+
+const drawer=document.getElementById("drawer"), mlist=document.getElementById("mlist");
+document.getElementById("openDrawer").addEventListener("click",()=>{drawer.hidden=false});
+document.getElementById("closeDrawer").addEventListener("click",()=>{drawer.hidden=true});
+NAV.items.forEach((m,i)=>{const wrap=document.createElement("div");wrap.className="l1";const b=document.createElement("button");b.type="button";b.innerHTML=`<span>${esc(m.label)}</span><span class="chev">${m.direct?"→":"▾"}</span>`;wrap.appendChild(b);
+  if(!m.direct){const l2=document.createElement("div");l2.className="l2";l2.hidden=true;l2.id="l2-"+i;b.setAttribute("aria-expanded","false");let h="";
+    if(m.href) h+=`<div class="row all"><span>${esc(UI.shop_all)} ${esc(m.label)}</span>${m.count!=null?`<span class="n">${m.count}</span>`:""}</div>`;
+    (m.cols||[]).forEach(c=>{if((m.cols||[]).length>1)h+=`<div class="sub">${esc(c.title)}</div>`;(c.items||[]).forEach(it=>{h+=`<div class="row"><span>${esc(it.label)}</span>${it.count!=null?`<span class="n">${it.count}</span>`:""}${tag(it)}</div>`});if(c.article)h+=`<div class="row art" data-badge="${esc(UI.article)}">${esc(c.article.label)}</div>`});
+    if(m.article)h+=`<div class="row art" data-badge="${esc(UI.article)}">${esc(m.article.label)}</div>`;
+    l2.innerHTML=h;wrap.appendChild(l2);
+    b.addEventListener("click",()=>{const open=l2.hidden;mlist.querySelectorAll(".l2").forEach(x=>x.hidden=true);mlist.querySelectorAll(".l1>button").forEach(x=>x.setAttribute("aria-expanded","false"));l2.hidden=!open;b.setAttribute("aria-expanded",String(open))})}
+  mlist.appendChild(wrap)});
+</script>
+</body>
+</html>

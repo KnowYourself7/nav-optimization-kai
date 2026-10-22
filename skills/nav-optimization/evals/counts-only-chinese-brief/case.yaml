@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: counts-only-chinese-brief
+expected_outcome: |
+  With only the brief and product counts, the run applies the product rule and the structural rules, marks traffic-based removals as pending, writes a Chinese proposal, a change table with 14 columns, a proposed menu JSON with at most 10 top-level items, and reports which fallbacks applied. Knit Shirts (7 products), Leather (3), Vintage (9), Sunglasses (6) lose their entries. Company pages leave the top level. No URL is invented.
+context:
+  scaffold_script: place-files.sh

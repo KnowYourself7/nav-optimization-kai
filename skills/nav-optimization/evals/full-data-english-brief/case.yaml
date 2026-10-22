@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: full-data-english-brief
+expected_outcome: |
+  The run joins product counts, Search Console and GA4 by path, finds the pages with traffic but no entry (sets, suits, swim-trunks, clearance), adds entries for those with 10 or more products, removes thin and low-traffic entries, promotes the main product groups to the top level, moves company pages to the footer, writes an English proposal with per-section tables, a 14-column change table, a proposed menu JSON that passes verify.py, and lists duplicate pages (cotton vs linen is not a pair; us-shirts vs shirts is) under client decisions.
+context:
+  scaffold_script: place-files.sh

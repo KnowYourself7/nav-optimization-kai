@@ -1,0 +1,11 @@
+{
+  "name": "nav-optimization-kai",
+  "displayName": "Nav Optimization",
+  "version": "0.1.0",
+  "description": "Optimize an existing e-commerce navigation menu with product counts, search data, analytics and competitor menus. Delivers a client proposal, a clickable mockup and a change table.",
+  "author": {
+    "name": "Kai"
+  },
+  "license": "MIT",
+  "keywords": ["seo", "navigation", "information-architecture", "ecommerce", "shopify"]
+}
